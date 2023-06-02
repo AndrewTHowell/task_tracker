@@ -1,4 +1,4 @@
-module todo_tracker
+module task_tracker
 
 go 1.20
 
