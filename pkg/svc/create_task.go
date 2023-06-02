@@ -12,7 +12,7 @@ func (s *Svc) CreateTask(ctx context.Context, task *tasktracker.Task) (*tasktrac
 		return nil, nil
 	}
 
-	if err := task.Validate(ctx, nil); err != nil {
+	if err := task.Validate(ctx, s); err != nil {
 		return nil, fmt.Errorf("creating task: %w", err)
 	}
 

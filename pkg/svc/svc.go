@@ -14,6 +14,7 @@ type Clock interface {
 
 type DB interface {
 	InsertTask(ctx context.Context, task *tasktracker.Task) error
+	SelectTaskByID(ctx context.Context, id string) (*tasktracker.Task, error)
 }
 
 type Svc struct {
