@@ -4,6 +4,8 @@ import (
 	"context"
 	"fmt"
 
+	uuid "github.com/satori/go.uuid"
+
 	tasktracker "task_tracker/pkg/task_tracker"
 )
 
@@ -12,6 +14,9 @@ func (s *Svc) CreateTask(ctx context.Context, task *tasktracker.Task) (*tasktrac
 		return nil, nil
 	}
 
+	if task.ID == uuid.Nil {
+		task.ID = uuid.NewV4()
+	}
 	if err := task.Validate(ctx, s); err != nil {
 		return nil, fmt.Errorf("creating task: %w", err)
 	}

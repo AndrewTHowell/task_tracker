@@ -3,7 +3,7 @@ package in_memory
 
 import tasktracker "task_tracker/pkg/task_tracker"
 
-type InMemoryDB struct{
+type InMemoryDB struct {
 	tasksByID map[string]*tasktracker.Task
 }
 
