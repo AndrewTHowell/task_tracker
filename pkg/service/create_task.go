@@ -1,4 +1,4 @@
-package svc
+package service
 
 import (
 	"context"
@@ -9,7 +9,7 @@ import (
 	tasktracker "task_tracker/pkg/task_tracker"
 )
 
-func (s *Svc) CreateTask(ctx context.Context, task *tasktracker.Task) (*tasktracker.Task, error) {
+func (s *Service) CreateTask(ctx context.Context, task *tasktracker.Task) (*tasktracker.Task, error) {
 	if task == nil {
 		return nil, nil
 	}

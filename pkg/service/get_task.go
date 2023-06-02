@@ -1,4 +1,4 @@
-package svc
+package service
 
 import (
 	"context"
@@ -7,7 +7,7 @@ import (
 	tasktracker "task_tracker/pkg/task_tracker"
 )
 
-func (s *Svc) GetTask(ctx context.Context, id string) (*tasktracker.Task, error) {
+func (s *Service) GetTask(ctx context.Context, id string) (*tasktracker.Task, error) {
 	if len(id) == 0 {
 		return nil, nil
 	}
@@ -19,7 +19,7 @@ func (s *Svc) GetTask(ctx context.Context, id string) (*tasktracker.Task, error)
 	return task, nil
 }
 
-func (s *Svc) TaskExists(ctx context.Context, id string) (bool, error) {
+func (s *Service) TaskExists(ctx context.Context, id string) (bool, error) {
 	_, err := s.GetTask(ctx, id)
 	if err != nil {
 		return false, fmt.Errorf("checking task exists: %w", err)

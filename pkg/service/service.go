@@ -1,5 +1,5 @@
-// Package svc facilitates serving tasks.
-package svc
+// Package service facilitates serving tasks.
+package service
 
 import (
 	"context"
@@ -17,7 +17,14 @@ type DB interface {
 	SelectTaskByID(ctx context.Context, id string) (*tasktracker.Task, error)
 }
 
-type Svc struct {
+type Service struct {
 	clock Clock
 	db    DB
+}
+
+func New(clock Clock, db DB) *Service {
+	return &Service{
+		clock: clock,
+		db:    db,
+	}
 }
